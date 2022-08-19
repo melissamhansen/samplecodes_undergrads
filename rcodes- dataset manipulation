@@ -1,0 +1,23 @@
+#first, always load necessary apps 
+library(tidyverse)
+
+#then always load data
+data <-read.csv('/Volumes/path/path/dataset.csv')
+
+#get descriptive stats for a variable
+describe(variable)
+
+#check skew 
+shapiro.test(dataset$variable)
+
+#visualize with histogram
+hist(variable) 
+
+#new dataset containing certain CASES
+data <- filter(data, variable > 1)
+
+#select certain VARIABLES
+data <- select(data, variable, variable)
+
+
+
