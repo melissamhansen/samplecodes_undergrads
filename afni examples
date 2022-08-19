@@ -1,0 +1,9 @@
+#creating ROI seeds
+#creating text file 
+vi NAME.txt 
+#add the xyz coordinates (spaces not commas) then type :wq to close 
+#use 3dundump, prefix is naming the mask, srad 5 is radius of 5mm and NAME.txt is the text file with the coordinates  
+3dUndump -prefix PREFIX -master MNI_avg152T1+tlrc -srad 5 -xyz NAME.txt
+
+
+
