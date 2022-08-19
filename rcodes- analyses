@@ -1,0 +1,4 @@
+#run a regression (beta: estimate, p: significance)
+mod1 <-lm(DV ~ IV + IV + IV)
+summary(fit)
+
