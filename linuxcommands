@@ -1,0 +1,2 @@
+#to delete files 
+find /dir/dir/dir -type f -name "*TYPENAMEHERE*" -delete 
