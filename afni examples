@@ -5,5 +5,13 @@ vi NAME.txt
 #use 3dundump, prefix is naming the mask, srad 5 is radius of 5mm and NAME.txt is the text file with the coordinates  
 3dUndump -prefix PREFIX -master MNI_avg152T1+tlrc -srad 5 -xyz NAME.txt
 
+#combining masks 
+3dcalc -a MASK1.nii -b MASK.nii -expr stepa+b -prefix NEWMASK
+
+#warp to MNI Space
+3dWarp -tta2mni -prefix NEWPREF OLD+tlrc.
+
+#match master dataset parameters
+3dresample -master /data/data/masks/MNI_avg152T1+tlrc -prefix newprefix -input /data/data/masks/old+tlrc.
 
 
