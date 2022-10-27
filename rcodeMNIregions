@@ -1,0 +1,19 @@
+```{r}
+library("devtools")
+library(label4MRI)
+```
+#one voxel at a time 
+```{r}
+region1 <- mni_to_region_name(x = 0, y = 0, z = 0)
+region1
+```
+
+#batch of multiple coordinates from csv file
+#create three columns with 3 coordinates and label the columns x, y, and z
+
+```{r}
+m <-read.csv('ALLcoordinates.csv')
+Result <- t(mapply(FUN = mni_to_region_name, x = m$X, y = m$Y, z = m$Z))
+View(Result)
+write.csv(Result,"results.csv")
+```
