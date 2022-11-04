@@ -1,0 +1,14 @@
+# to navigate into a file
+cd /data/folder/folder
+
+# to navigate out of a file
+#one step
+cd ..
+#all the way
+cd ~
+
+#edit permissions, give full permissions in a folder 
+chmod -R 777 .
+
+#to delete files 
+find /dir/dir/dir -type f -name "*TYPENAMEHERE*" -delete 
