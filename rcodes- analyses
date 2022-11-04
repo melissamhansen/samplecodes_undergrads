@@ -9,6 +9,31 @@ summary(fit)
 int <- lm(DV ~ IV1*IV2 + IV1 + IV2 + COVS, data=data)
 summary(int)
 
+#to get simple slopes values
+
+sim_slopes(
+  int1,
+  predictorvariable,
+  moderatorvariable,
+  modx.values = NULL,
+  centered = "all",
+  data = NULL,
+  cond.int = FALSE,
+  johnson_neyman = TRUE,
+  jnplot = FALSE,
+  jnalpha = 0.05,
+  robust = FALSE,
+  digits = getOption("jtools-digits", default = 2),
+  pvals = TRUE,
+  confint = FALSE,
+  ci.width = 0.95,
+  cluster = NULL,
+  modx.labels = NULL,
+  mod2.labels = NULL,
+  v.cov = NULL,
+  v.cov.args = NULL,
+)
+
 #to plot: 
 interact_plot(int, pred = IV, modx = moderator)
 ```
