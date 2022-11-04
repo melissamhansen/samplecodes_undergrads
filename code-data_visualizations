@@ -1,0 +1,12 @@
+#basic scatterplot
+
+```{r}
+attach(data)
+p <- ggplot(data,aes(x=variable1,y=variable2)) +
+          geom_point() + geom_smooth(method= "lm", se=FALSE, fullrange=TRUE, color = "black") + theme_minimal() + scale_color_grey() 
+
+p <- p + ggtitle("TITLE") + xlab("X AXIS VARIABLE NAME") + ylab("X AXIS VARIABLE NAME") + theme(plot.title = element_text(hjust = 0.5)) + theme(axis.text=element_text(size=20),
+        axis.title=element_text(size=20,face="plain"))
+#to save plot
+ggsave("file name.jpeg", path = '/Volumes/folder/folder/folder/folder/', bg="white", width = 5, height = 5, device='jpeg', dpi= 700)
+```
