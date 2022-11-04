@@ -1,4 +1,20 @@
 #run a regression (beta: estimate, p: significance)
+```{r}
 mod1 <-lm(DV ~ IV + IV + IV)
 summary(fit)
+```
 
+#run an interaction effect
+```{r}
+int <- lm(DV ~ IV1*IV2 + IV1 + IV2 + COVS, data=data)
+summary(int)
+
+#to plot: 
+interact_plot(int, pred = IV, modx = moderator)
+```
+
+#FDR correction
+```{r}
+pvalues <- c(0.2054, 0.1169, 0.334, 0.2246,  0.2061)
+p.adjust(pvalues, method="fdr")
+```
