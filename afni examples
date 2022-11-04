@@ -14,4 +14,7 @@ vi NAME.txt
 #match master dataset parameters
 3dresample -master /data/data/masks/MNI_avg152T1+tlrc -prefix newprefix -input /data/data/masks/old+tlrc.
 
+#to check data 
+3dinfo filename+tlrc
+
 
