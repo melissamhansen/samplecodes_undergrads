@@ -1,3 +1,12 @@
+library(tidyverse)
+library(psych)
+library(dplyr)
+library(ppcor)
+library(jtools)
+library(interactions)
+library(ggpubr)
+library(DescTools)
+
 #run a regression (beta: estimate, p: significance)
 ```{r}
 mod1 <-lm(DV ~ IV + IV + IV)
