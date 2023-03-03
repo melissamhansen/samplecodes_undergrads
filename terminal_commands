@@ -1,0 +1,19 @@
+#tar file and send to remote machine
+cd /Volumes/MerzLab/MRI_Study_of_Inhibitory_Control/Data/MRI_data
+tar -czf subid.tar.gz subid
+scp subid merzlab@129.82.107.222:/data/earlyexp/data/
+
+#get file from remote machine
+scp merzlab@129.82.107.222:/data/earlyexp/data/MR018/proc/t1/MR018_t1.nii /Volumes/MerzLab/MRI_Study_of_Inhibitory_Control/Data/MRI_data/T1_to_preprocess_fresurfer
+
+Freesurfer
+#load freesurfer
+export FREESURFER_HOME=/Applications/freesurfer
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+cd /Volumes/MerzLab/MRI_Study_of_Inhibitory_Control/Data/MRI_data/T1_to_preprocess_fresurfer 
+
+#reconall for processing
+recon-all -s MR00? -i MR00?_t1.nii -all
+#hippocampal and amygdala values
+cd /Applications/freesurfer/bin
+segmentHA_T1.sh MR00? /Applications/freesurfer/subjects
