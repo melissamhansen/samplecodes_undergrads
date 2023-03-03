@@ -13,6 +13,9 @@ shapiro.test(dataset$variable)
 #visualize with histogram
 hist(variable) 
 
+#windsorize 
+dataset$newvariablename <- Winsorize(dataset$oldvariablename)
+
 #new dataset containing certain CASES
 data <- filter(data, variable > 1)
 
