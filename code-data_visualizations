@@ -1,5 +1,7 @@
 #basic scatterplot
 
+library(ggplot2)
+
 ```{r}
 attach(data)
 p <- ggplot(data,aes(x=variable1,y=variable2)) +
