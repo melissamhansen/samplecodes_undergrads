@@ -17,3 +17,7 @@ recon-all -s MR00? -i MR00?_t1.nii -all
 #hippocampal and amygdala values
 cd /Applications/freesurfer/bin
 segmentHA_T1.sh MR00? /Applications/freesurfer/subjects
+
+#congregate data (need to create subjects/tablefiles/amygdalarnuclei-stats.csv)
+quantifyHAsubregions.sh amygNuc T1 tablefiles/amygdalarnuclei-stats.csv
+sed -i '' 's/ /,/g' tablefiles/amygdalarnuclei-stats.csv
