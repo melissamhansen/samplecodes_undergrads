@@ -24,4 +24,8 @@ sed -i '' 's/ /,/g' tablefiles/amygdalarnuclei-stats.csv
 # to add hippocampal 
 quantifyHAsubregions.sh hippoSf T1 tablefiles/hipposubfields-stats.csv
 sed -i '' 's/ /,/g' tablefiles/hipposubfields-stats.csv
+# citation: https://doi.org/10.1016/j.neuroimage.2015.04.042
+
+#viewsegmentations
+freeview -v mri/orig.mgz mri/aseg.mgz:colormap=LUT -f surf/lh.pial:edgecolor=yellow
 
