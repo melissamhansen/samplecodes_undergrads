@@ -21,3 +21,7 @@ segmentHA_T1.sh MR00? /Applications/freesurfer/subjects
 #congregate data (need to create subjects/tablefiles/amygdalarnuclei-stats.csv)
 quantifyHAsubregions.sh amygNuc T1 tablefiles/amygdalarnuclei-stats.csv
 sed -i '' 's/ /,/g' tablefiles/amygdalarnuclei-stats.csv
+# to add hippocampal 
+quantifyHAsubregions.sh hippoSf T1 tablefiles/hipposubfields-stats.csv
+sed -i '' 's/ /,/g' tablefiles/hipposubfields-stats.csv
+
