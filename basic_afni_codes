@@ -8,6 +8,9 @@ vi NAME.txt
 #combining masks 
 3dcalc -a MASK1.nii -b MASK.nii -expr stepa+b -prefix NEWMASK
 
+#creating mask from nifti file 
+3dcalc -a Yeo2011_7Networks_MNI152_1mm.nii.gz -expr 'equals(a,3)' -prefix YEO_3a
+
 #warp to MNI Space
 3dWarp -tta2mni -prefix NEWPREF OLD+tlrc.
 
