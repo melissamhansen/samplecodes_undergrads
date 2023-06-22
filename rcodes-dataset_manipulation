@@ -22,11 +22,34 @@ data <- filter(data, variable > 1)
 #select certain VARIABLES
 data <- select(data, variable, variable)
 
+```{r}
 #combine datasets
 data1 <-read.csv('data1.csv')
 data2 <-read.csv('data2.csv')
 fulldata <- merge(data1,data2,by="id")
 #if you want to save it
 write.csv(fulldata,'fulldata.csv')
+```
+
+```{r}
+#How to print a list of file names
+
+# Set the path to your folder
+folder_path <- "/path/path/folder"
+
+# Retrieve the file names from the folder
+file_names <- list.files(path = folder_path)
+
+options(max.print = 10000000)  # Set it to a desired value greater than your total entries
+
+# Print the file names
+file_names
+
+write.csv(file_names, '/path/path/path/filenames.csv')
+
+# Save the file names to a text file
+file_path <- "/path/path/filename.txt"
+writeLines(file_names, con = file_path)
+```
 
 
