@@ -7,6 +7,10 @@ data <-read.csv('/Volumes/path/path/dataset.csv')
 #get descriptive stats for a variable
 describe(variable)
 
+#get counts from categorical data
+gender_counts <- table(data$gender)
+print(gender_counts)
+
 #check skew 
 shapiro.test(dataset$variable)
 
