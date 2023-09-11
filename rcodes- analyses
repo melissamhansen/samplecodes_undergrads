@@ -52,3 +52,7 @@ interact_plot(int, pred = IV, modx = moderator)
 pvalues <- c(0.2054, 0.1169, 0.334, 0.2246,  0.2061)
 p.adjust(pvalues, method="fdr")
 ```
+
+#mediation analyses
+
+
