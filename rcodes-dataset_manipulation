@@ -56,4 +56,27 @@ file_path <- "/path/path/filename.txt"
 writeLines(file_names, con = file_path)
 ```
 
+#sum total score (example of our PHQ binning 1 equals 0 and 234 equals 1 and everything else is 2) then summed at the bottom
+```{r}
+mridata <- mridata %>%
+  mutate(
+    PHQ_1b = ifelse(PHQ_1 == 1, 0, ifelse(PHQ_1 %in% c(2, 3, 4), 1, 2)),
+    PHQ_2b = ifelse(PHQ_2 == 1, 0, ifelse(PHQ_2 %in% c(2, 3, 4), 1, 2)),
+    PHQ_3b = ifelse(PHQ_3 == 1, 0, ifelse(PHQ_3 %in% c(2, 3, 4), 1, 2)),
+    PHQ_4b = ifelse(PHQ_4 == 1, 0, ifelse(PHQ_4 %in% c(2, 3, 4), 1, 2)),
+    PHQ_5b = ifelse(PHQ_5 == 1, 0, ifelse(PHQ_5 %in% c(2, 3, 4), 1, 2)),
+    PHQ_6b = ifelse(PHQ_6 == 1, 0, ifelse(PHQ_6 %in% c(2, 3, 4), 1, 2)),
+    PHQ_7b = ifelse(PHQ_7 == 1, 0, ifelse(PHQ_7 %in% c(2, 3, 4), 1, 2)),
+    PHQ_8b = ifelse(PHQ_8 == 1, 0, ifelse(PHQ_8 %in% c(2, 3, 4), 1, 2)),
+    PHQ_9b = ifelse(PHQ_9 == 1, 0, ifelse(PHQ_9 %in% c(2, 3, 4), 1, 2)),
+    PHQ_10b = ifelse(PHQ_10 == 1, 0, ifelse(PHQ_10 %in% c(2, 3, 4), 1, 2)),
+    PHQ_11b = ifelse(PHQ_11 == 1, 0, ifelse(PHQ_11 %in% c(2, 3, 4), 1, 2)),
+    PHQ_12b = ifelse(PHQ_12 == 1, 0, ifelse(PHQ_12 %in% c(2, 3, 4), 1, 2)),
+    PHQ_13b = ifelse(PHQ_13 == 1, 0, ifelse(PHQ_13 %in% c(2, 3, 4), 1, 2)),
+    PHQ_14b = ifelse(PHQ_14 == 1, 0, ifelse(PHQ_14 %in% c(2, 3, 4), 1, 2))
+  )
+PHQ2_items <- dplyr::select(mridata, PHQ_1b ,PHQ_2b,PHQ_3b,	PHQ_4b, PHQ_5b, PHQ_6b, PHQ_7b,  PHQ_8b,	 PHQ_9b,	PHQ_10b,	PHQ_11b,	PHQ_12b,	PHQ_13b,	PHQ_14b)
+mridata <- mridata %>% mutate(
+   PHQ_recode = rowSums(PHQ2_items))
+
 
