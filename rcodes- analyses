@@ -9,7 +9,7 @@ library(DescTools)
 
 #run a regression (beta: estimate, p: significance)
 ```{r}
-mod1 <-lm(DV ~ IV + IV + IV)
+mod1 <-lm(DV ~ IV + V + IV)
 summary(fit)
 ```
 
@@ -17,9 +17,10 @@ summary(fit)
 ```{r}
 int <- lm(DV ~ IV1*IV2 + IV1 + IV2 + COVS, data=data)
 summary(int)
+```
 
 #to get simple slopes values
-
+```{r}
 sim_slopes(
   int1,
   predictorvariable,
@@ -42,7 +43,6 @@ sim_slopes(
   v.cov = NULL,
   v.cov.args = NULL,
 )
-
 #to plot: 
 interact_plot(int, pred = IV, modx = moderator)
 ```
@@ -54,5 +54,24 @@ p.adjust(pvalues, method="fdr")
 ```
 
 #mediation analyses
+
+```{r}
+library(mediation)
+#to do in psych package
+mod1 <- psych::mediate(DV ~ IV - COV - COV + (mediator), data = data)
+summary(mod1)
+
+#need no missing data
+data <- dplyr::select(data, DV, IV, COV, COV, COV)
+data <- na.omit(data)
+
+#model M is a path, model Y is b path
+
+model.M <- lm(mediator ~ predictor + COV + COV, data)
+model.Y <- lm(DV ~ mediator + COV + COV + IV, data)
+results <- mediate(model.M, model.Y, treat='IV', mediator='mediator',
+                   boot=TRUE, sims=10000)
+summary(results)
+```
 
 
